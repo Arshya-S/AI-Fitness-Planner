@@ -2,7 +2,7 @@ import '../styles/Modal.scss';
 import { useEffect, useState } from "react";
 import ExerciseItem from './ExerciseItem';
 
-const Modal = ({ setIsModalOpen, workoutId }) => {
+const Modal = ({ isModalOpen, setIsModalOpen, workoutId }) => {
   const [exercises, setExercises] = useState([]);
 
   useEffect(() => {
@@ -22,7 +22,7 @@ const Modal = ({ setIsModalOpen, workoutId }) => {
     };
 
     fetchExercises();
-  });
+  }, [isModalOpen]);
 
 
 
