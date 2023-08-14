@@ -10,16 +10,16 @@ const WorkoutItem = (props) => {
       <div className="workout-item">
         <h3 className="text-light">{props.title}</h3>
         <button
-          className="btn btn-outline-light"
+          className="btn btn-outline-info"
           onClick={() => {
-            setIsModalOpen(true)
+            setIsModalOpen(true);
           }}
 
         >
           Details
         </button>
       </div>
-      {isModalOpen && <Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} workoutId={props.workoutId}/>}
+      {isModalOpen && <Modal setIsModalOpen={setIsModalOpen} workoutId={props.workoutId} workoutTitle={props.title} fetchWorkouts={props.fetchWorkouts} setDeleteWorkout={props.setDeleteWorkout} />}
     </>
   );
 
