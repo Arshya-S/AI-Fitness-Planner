@@ -23,12 +23,18 @@ router.get('/:id', async (req, res) => {
 });
 
 // Delete route for indvidual workout
-router.delete('/:id', (req, res) => {
-  const workoutId = req.params.id;
-  deleteWorkout.deleteWorkoutByWorkoutId(Number(workoutId))
-    .then(data => {
-      res.json(data);
-    });
+router.delete('/:id', async (req, res) => {
+  try {
+    const workoutId = req.params.id;
+    const deletedWorkout = await deleteWorkout.deleteWorkoutByWorkoutId(Number(workoutId));
+    if (!deletedWorkout) {
+      res.status(404).json({ message: 'Workout not found' });
+    } else {
+      res.json(deletedWorkout);
+    }
+  } catch (error) {
+    res.status(500).json({ message: 'Internal server error' });
+  }
 });
 
 // Post route for individual workout
