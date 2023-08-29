@@ -13,5 +13,4 @@ const deleteWorkoutByWorkoutId = (id) => {
     });
 };
 
-
 module.exports = { deleteWorkoutByWorkoutId };
