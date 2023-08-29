@@ -7,6 +7,7 @@ const deleteWorkout = require('../db/queries/delete-workout');
 const editExercisesByWorkoutId = require('../db/queries/edit-exercise-for-workout');
 const editWorkouts = require('../db/queries/edit-workout');
 
+// Get route for individual workout
 router.get('/:id', (req, res) => {
   const userId = req.params.id;
   getWorkouts.getWorkoutById(Number(userId))
@@ -15,6 +16,7 @@ router.get('/:id', (req, res) => {
     });
 });
 
+// Delete route for indvidual workout
 router.delete('/:id', (req, res) => {
   const workoutId = req.params.id;
   deleteWorkout.deleteWorkoutByWorkoutId(Number(workoutId))
@@ -23,6 +25,7 @@ router.delete('/:id', (req, res) => {
     });
 });
 
+// Post route for individual workout
 router.post('/create/:id', (req, res) => {
   const userId = req.params.id;
   const title = req.body.title;
@@ -37,6 +40,7 @@ router.post('/create/:id', (req, res) => {
   res.sendStatus(200);
 });
 
+// Post route for editing individual workout
 router.post('/edit/:id', (req, res) => {
   const userId = req.params.id;
   const title = req.body.title;

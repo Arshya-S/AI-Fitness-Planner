@@ -1,7 +1,6 @@
 require('dotenv').config();
 const express = require('express');
 const morgan = require('morgan');
-const cookieSession = require('cookie-session');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
