@@ -3,6 +3,7 @@ const router = express.Router();
 const getExercises = require('../db/queries/get-exercises');
 const getExercisesByWorkoutId = require('../db/queries/get-exercises-by-workout-id');
 const editExercise = require('../db/queries/edit-exercise');
+const deleteExercise = require('../db/queries/delete-exercise');
 
 // Get route for exercises
 router.get('/', (req, res) => {
