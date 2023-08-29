@@ -8,12 +8,18 @@ const editExercisesByWorkoutId = require('../db/queries/edit-exercise-for-workou
 const editWorkouts = require('../db/queries/edit-workout');
 
 // Get route for individual workout
-router.get('/:id', (req, res) => {
-  const userId = req.params.id;
-  getWorkouts.getWorkoutById(Number(userId))
-    .then(data => {
-      res.json(data);
-    });
+router.get('/:id', async (req, res) => {
+  try {
+    const userId = req.params.id;
+    const workout = await getWorkouts.getWorkoutById(Number(userId));
+    if (!workout) {
+      res.status(404).json({ message: 'Workout not found' });
+    } else {
+      res.json(workout);
+    }
+  } catch (error) {
+    res.status(500).json({ message: 'Internal server error' });
+  }
 });
 
 // Delete route for indvidual workout
