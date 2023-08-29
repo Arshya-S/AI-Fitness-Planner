@@ -40,4 +40,13 @@ router.put('/edit/:id', (req, res) => {
     });
 });
 
+// Delete route to delete an exercise
+router.delete('/delete/:id', (req, res) => {
+  const exerciseId = req.params.id;
+  deleteExercise.deleteExerciseById(exerciseId)
+    .then(data => {
+      res.json(data);
+    });
+});
+
 module.exports = router;
