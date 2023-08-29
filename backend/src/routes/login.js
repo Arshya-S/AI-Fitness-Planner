@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const loginQuery = require('../db/queries/login');
 
-
+// Post to login
 router.post('/', (req, res) => {
   loginQuery.getUserByEmailAndPassword(req.body)
     .then(data => {

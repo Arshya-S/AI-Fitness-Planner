@@ -9,10 +9,9 @@ const getWorkoutById = (id) => {
     .then(data => {
       return data.rows;
     })
-    .catch(err => {
-      console.log('Query Error: ', err);
+    .catch(error => {
+      console.log('Query Error: ', error);
     });
 };
-
 
 module.exports = { getWorkoutById };
